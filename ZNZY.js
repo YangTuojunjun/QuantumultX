@@ -17,6 +17,5 @@ hostname = soe.tencentcloudapi.com,a.welife001.com
 *******************************/
 var body=$response.body;
 body = body.replace(/SuggestedScore\":\d+[.]\d+/g,'SuggestedScore":100');
-body = body.replace(/overall\":\d+/g,'overall":0');
 body = body.replace(/SuggestedScore\":0/g,'SuggestedScore":100');
 $done(body);
