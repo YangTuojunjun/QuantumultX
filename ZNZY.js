@@ -8,14 +8,13 @@
 *******************************
 %¥
 [rewrite_local]
-^https?:\/\/soe\.tencentcloudapi\.com\/|https?:\/\/a\.welife001\.com\/applet\/listenread\/statistics\/*.*? url script-response-body ZNZY.js
+^https?:\/\/openspeech\.bytedance\.com\/api\/v1\/mdd.*? url script-response-body ZNZY.js
 
 
 [mitm]
-hostname = soe.tencentcloudapi.com,a.welife001.com
+hostname = openspeech.bytedance.com
 %¥
 *******************************/
 var body=$response.body;
-body = body.replace(/SuggestedScore\":\d+[.]\d+/g,'SuggestedScore":100');
-body = body.replace(/SuggestedScore\":0/g,'SuggestedScore":100');
+body = body.replace(/score\":^.{1,'score":1');
 $done(body);
